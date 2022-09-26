@@ -14,7 +14,7 @@ export const Default = Template.bind({});
 Default.args = {
   timecard: {
     id: '1',
-    name: 'Test TimeCard',
+    name: 'Alexis Lust',
     state: 'TASK_INBOX',
   },
 };
