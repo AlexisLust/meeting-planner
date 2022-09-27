@@ -1,34 +1,38 @@
-import Welcome from "./components/Welcome"
 import React, { useEffect, useState } from "react";
-import Users from "./components/User";
-
+import Axios from "axios";
+import TimeCard from "./components/TimeCard";
 
 export default function App() {
-    const [backendData, setBackendData] = useState([{}])
+  const [listOfCoworkers, setCoworkers] = useState([{}]);
 
-    useEffect(() => {
-      fetch("/api").then(
-        response => response.json()
-      ).then(
-        data => {
-          setBackendData(data)
-        }
-      )
-    }, [])
+  useEffect(() => {
+    Axios.get("/api/coworkers").then((response) => {
+      setCoworkers(response.data);
+    });
+    // fetch("/api/coworkers").then(
+    //   response => response.json()
+    // ).then(
+    //   data => {
+    //     setCoworkers(data)
+    //   }
+    // )
+  }, []);
 
-    return (
-      <>
-      <div>
-        {(typeof backendData.users === 'undefined') ? (
-          <p>loading...</p>
-        ): (
-          backendData.users.map((user, i) => (
-            <p key={i}>{user}</p>
-          ))
-        )}
+  return (
+    <>
+    <div className="w-full h-36 top-0 bg-dark-green "></div>
+    <div className="flex justify-center w-full items-center" >
+      <div className="p-6 space-x-12 -my-32">
+        {listOfCoworkers.map((coworker) => {
+          return (
+              <div className="float-left">
+              <TimeCard timecard={coworker} />
+              </div>
+          );
+        })}
       </div>
-      {/* <Users /> */}
-        {/* <Welcome /> */}
-      </>
-    );
-  }
+      </div>
+      
+    </>
+  );
+}
