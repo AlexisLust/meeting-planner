@@ -1,6 +1,17 @@
 module.exports = {
   content:["./src/**/*.{js,jsx}"],
   theme: {
+    extend: {
+      keyframes: {
+        wiggle: {
+          "0%, 100%": { transform: "rotate(-3deg)" },
+          "50%": { transform: "rotate(3deg)" }
+        }
+      },
+      animation: {
+        wiggle: "wiggle 200ms ease-in-out"
+      }
+    },
     colors: {
       transparent: 'transparent',
       current: 'currentColor',
@@ -16,9 +27,10 @@ module.exports = {
       'header-gray': '#e5e5e5',
       'item-gray': '#d1d1d1',
       'dark-green': '#455143',
+      'light-green': '#667763',
     },
 
-    extend: {},
+    
   },
   plugins: [],
 }
