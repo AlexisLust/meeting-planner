@@ -12,7 +12,7 @@ export default function TimeCard({
     time_three_start,
     time_three_end,
   },
-  setIdSelectedCoworker,
+  schedule,
   onArchiveTask,
   onPinTask,
 }) {
@@ -26,7 +26,7 @@ export default function TimeCard({
     setButtonText("Added");
     setbuttonState(false);
     setEffect(true);
-    setIdSelectedCoworker(id);
+    schedule(id);
   }
 
   function removedButton() {
