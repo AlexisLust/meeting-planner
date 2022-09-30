@@ -2,7 +2,22 @@ import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 
 export default function TimeCard({
-  timecard: {
+  // timecard: {
+  //   id,
+  //   name,
+  //   time_one_start,
+  //   time_one_end,
+  //   time_two_start,
+  //   time_two_end,
+  //   time_three_start,
+  //   time_three_end,
+  // },
+  timecard,
+  setListOfSelectedCoworkers,
+}) {
+  // var message = "";
+  // var handled = 1;
+  const {
     id,
     name,
     time_one_start,
@@ -11,13 +26,8 @@ export default function TimeCard({
     time_two_end,
     time_three_start,
     time_three_end,
-  },
-  schedule,
-  onArchiveTask,
-  onPinTask,
-}) {
-  // var message = "";
-  // var handled = 1;
+  } = timecard;
+
   const [buttonText, setButtonText] = useState("Add to Meeting");
   const [buttonState, setbuttonState] = useState(true);
   const [effect, setEffect] = useState(false);
@@ -26,7 +36,9 @@ export default function TimeCard({
     setButtonText("Added");
     setbuttonState(false);
     setEffect(true);
-    schedule(id);
+    setListOfSelectedCoworkers((e) => [...e, timecard]);
+    // we set this here so it doesn't get reset over there
+    
   }
 
   function removedButton() {
@@ -115,8 +127,4 @@ TimeCard.propTypes = {
     /** Title of the task */
     name: PropTypes.string.isRequired,
   }),
-  /** Event to change the task to archived */
-  onArchiveTask: PropTypes.func,
-  /** Event to change the task to pinned */
-  onPinTask: PropTypes.func,
 };

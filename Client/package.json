@@ -4,6 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "start-all": "concurrently \"npm run dev\" \"cd ../api && npm run dev\"",
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
@@ -11,8 +12,11 @@
     "build-storybook": "build-storybook"
   },
   "dependencies": {
+    "nodemon": "^2.0.20",
+    "express": "^4.18.1",
     "autoprefixer": "^9.8.8",
     "axios": "^0.27.2",
+    "concurrently": "^7.4.0",
     "postcss": "^7.0.39",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
