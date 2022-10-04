@@ -11,7 +11,7 @@ app.use("/api/coworkers", coworkers);
 // })
 var listSelectedCoworkers = [];
 
-app.use("/schedule", function (req, res, next) {
+app.use("/schedule", function (req, res, next) { // middleware that logs schedule functions
   const id = req.body.coworker;
   listSelectedCoworkers.push(id);
   console.log(id);
@@ -20,7 +20,7 @@ app.use("/schedule", function (req, res, next) {
   next();
 });
 app.post("/schedule", (req, res) => {
-  const schedule = req.body.coworker;
+  // const schedule = req.body.coworker;
 
   res.send("Next meeting available at ... ");
 });

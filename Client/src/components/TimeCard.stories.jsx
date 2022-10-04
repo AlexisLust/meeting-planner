@@ -13,24 +13,16 @@ const Template = args => <TimeCard {...args} />;
 export const Default = Template.bind({});
 Default.args = {
   timecard: {
-    id: '1',
-    name: 'Alexis Lust',
-    state: 'TASK_INBOX',
+    id: 0,
+      name: "Alexis Lust",
+      time_one_start: "9:00",
+      time_one_end: "9:30",
+      time_two_start: "12:00",
+      time_two_end: "14:00",
+      time_three_start: "15:00",
+      time_three_end: "17:00",
   },
 };
 
-export const Pinned = Template.bind({});
-Pinned.args = {
-    timecard: {
-    ...Default.args.timecard,
-    state: 'TASK_PINNED',
-  },
-};
 
-export const Archived = Template.bind({});
-Archived.args = {
-    timecard: {
-    ...Default.args.timecard,
-    state: 'TASK_ARCHIVED',
-  },
-};
+
