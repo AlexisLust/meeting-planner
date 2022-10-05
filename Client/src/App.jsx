@@ -17,11 +17,12 @@ export default function App() {
     });
   }, []);
   useEffect(() => {
-    console.log(listOfSelectedCoworkers);
     setMessage(schedule());
   }, [listOfSelectedCoworkers]);
 
-  function removeCoworker(idToRemove) {
+  //We receive an id from the timecard that is to be removed from the calculation, then slice the array, 
+  //updating the schedule when the list being chaged triggers it
+  function removeCoworker(idToRemove) { 
     const index = listOfSelectedCoworkers.findIndex(({ id }) => id === idToRemove);
     if (index !== -1) {
       setListOfSelectedCoworkers([...listOfSelectedCoworkers.slice(0, index), ...listOfSelectedCoworkers.slice(index + 1)]);
@@ -31,7 +32,7 @@ export default function App() {
   function schedule() {
     // Here we set an array of valid times, and iterate keeping only the matching valid times, a new array being formed and the previous one discarded
     // Until all items have been iterated, then we show the result.
-    // The first iteration the first array is the only one being populated, next round its a comparison of that array, and a creation of a new one based on it.
+    // For the first iteration the first array is the only one being populated, next round is a comparison of that array, and a creation of a new one based on it.
     // The array will follow the format that index 0 is 00:00 to 00:30, index 1 is 00:30 to 01:00, etc.
 
     var resultingArray = [];
