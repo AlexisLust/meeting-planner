@@ -130,8 +130,8 @@ TimeCard.propTypes = {
   /** Composition of the task */
   timecard: PropTypes.shape({
     /** Id of the task */
-    id: PropTypes.number.isRequired,
+    id: PropTypes.number,
     /** Title of the task */
-    name: PropTypes.string.isRequired,
+    name: PropTypes.string,
   }),
 };

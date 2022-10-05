@@ -93,10 +93,10 @@ export default function App() {
         listOfSelectedCoworkers[0].time_three_end
       );
       addToResultingArray(time_three[0], time_three[1]);
-      console.log(resultingArray);
+      // console.log(resultingArray);
       //everything else
     }
-    console.log("Number of selected people: " + listOfSelectedCoworkers.length);
+    // console.log("Number of selected people: " + listOfSelectedCoworkers.length);
 
     for (var i = 1; i < listOfSelectedCoworkers.length; i++) {
       // i is the coworker
@@ -125,7 +125,7 @@ export default function App() {
         tempArray.includes(element)
       ); //All the logic leads here. This one line. I thought it would take at least 15 lines.
     }
-    console.log("Resulting array: " + resultingArray);
+    // console.log("Resulting array: " + resultingArray);
 
     availableTimes = [];
     resultingArray.forEach((time) => {
@@ -135,15 +135,17 @@ export default function App() {
         ? availableTimes.push(quotient + ":" + "30")
         : availableTimes.push(quotient + ":" + "00");
     });
-    console.log("Available times: " + availableTimes);
+    // console.log("Available times: " + availableTimes);
     var tempMessage;
     if (availableTimes.length > 0) {
       if (availableTimes.length > 1) {
+        const str = String(availableTimes.slice(1))
+        const spacedTimes = str.replace(/,/g, ', ');
         tempMessage =
           "The next available time for a meeting is " +
           availableTimes[0] +
           ". Other possibles times: " +
-          availableTimes.slice(1) +
+          spacedTimes +
           ".";
       } else {
         tempMessage =
@@ -172,10 +174,10 @@ export default function App() {
       <div className=" w-full h-36 top-0 bg-dark-green"></div>
       <div className=" w-full -mt-32  font-nunito flex flex-col items-center">
         {/* <div className=" space-x-12 flex flex-wrap md:flex-row  my-6  justify-center"> */}
-        <div className="flex flex-wrap m-auto">
-          {listOfCoworkers.map((coworker) => {
+        <div className="grid 2xl:grid-cols-4 xl:grid-cols-3 md:grid-cols-2 gap-2">
+          {listOfCoworkers.map((coworker, index) => {
             return (
-              <div className="m-6">
+              <div key={index} className="m-6">
                 <TimeCard
                   timecard={coworker}
                   setListOfSelectedCoworkers={setListOfSelectedCoworkers}

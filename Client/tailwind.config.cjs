@@ -1,6 +1,6 @@
 module.exports = {
   content: ["./src/**/*.{js,jsx}"],
-  theme: {
+  theme: {    
     fontFamily: {
       'nunito': ['"Nunito Sans"', 'sans-serif'],
     },
