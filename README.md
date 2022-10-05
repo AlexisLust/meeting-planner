@@ -3,7 +3,7 @@
 TO-DO Features 
 - [x] Mongodb connection
 - [x] Add or remove attendees to the meeting
-- [] Multi theme with tailwind and css vars.
+- [ ] Multi theme with tailwind and css vars.
 
 
 How to run:
