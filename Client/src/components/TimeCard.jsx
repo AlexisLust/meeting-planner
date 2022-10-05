@@ -14,6 +14,8 @@ export default function TimeCard({
   // },
   timecard,
   setListOfSelectedCoworkers,
+  removeCoworker,
+
 }) {
   // var message = "";
   // var handled = 1;
@@ -45,6 +47,11 @@ export default function TimeCard({
     setButtonText("Add to Meeting");
     setbuttonState(true);
     setEffect(true);
+    removeCoworker(id); // we receive this from the parent
+
+    // setListOfSelectedCoworkers((e) => {
+    //   e.filter(item => item !== timecard);
+    // });
   }
 
   // message = "Added " + name + " to meeting";
@@ -64,7 +71,7 @@ export default function TimeCard({
   // console.log(handled);
 
   return (
-    <div className="rounded-2xl min-h-96 w-96 bg-header-gray pb-2 max-w-xs ">
+    <div className="rounded-2xl min-h-96 w-96 bg-header-gray pb-2 max-w-xs">
       <div className="rounded-2xl h-full bg-background-gray max-w-sm">
         <div className="rounded-t-2xl bg-header-gray h-25 w-full">
           <h4

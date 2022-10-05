@@ -17,13 +17,18 @@ export default function App() {
     });
   }, []);
   useEffect(() => {
+    console.log(listOfSelectedCoworkers);
     setMessage(schedule());
-}, [listOfSelectedCoworkers]);
+  }, [listOfSelectedCoworkers]);
 
- 
+  function removeCoworker(idToRemove) {
+    const index = listOfSelectedCoworkers.findIndex(({ id }) => id === idToRemove);
+    if (index !== -1) {
+      setListOfSelectedCoworkers([...listOfSelectedCoworkers.slice(0, index), ...listOfSelectedCoworkers.slice(index + 1)]);
+    }
+  }
 
   function schedule() {
-    
     // Here we set an array of valid times, and iterate keeping only the matching valid times, a new array being formed and the previous one discarded
     // Until all items have been iterated, then we show the result.
     // The first iteration the first array is the only one being populated, next round its a comparison of that array, and a creation of a new one based on it.
@@ -164,14 +169,16 @@ export default function App() {
         alt="example"
       /> */}
       <div className=" w-full h-36 top-0 bg-dark-green"></div>
-      <div className="  py-6 w-full top-36 -my-32 flex justify-center font-nunito">
-        <div className=" space-x-12 ">
+      <div className=" w-full -mt-32  font-nunito flex flex-col items-center">
+        {/* <div className=" space-x-12 flex flex-wrap md:flex-row  my-6  justify-center"> */}
+        <div className="flex flex-wrap m-auto">
           {listOfCoworkers.map((coworker) => {
             return (
-              <div className=" float-left">
+              <div className="m-6">
                 <TimeCard
                   timecard={coworker}
                   setListOfSelectedCoworkers={setListOfSelectedCoworkers}
+                  removeCoworker={removeCoworker}
                 />
               </div>
             );
@@ -186,9 +193,16 @@ export default function App() {
         </div> */}
       </div>
       <div className="flex justify-center items-center">
-        <div className="rounded-xl mt-40 h-20 bg-background-gray ">
-          <p>{message}</p>{" "}
-        </div>
+        {message === undefined ? (
+          <div></div>
+        ) : (
+          <div className="rounded-xl my-10 h-20 bg-header-gray ">
+            <div className="rounded-xl p-6  bg-background-gray ">
+              <p>{message}</p>
+              {""}
+            </div>
+          </div>
+        )}
       </div>
     </>
   );
