@@ -1,3 +1,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  :root {
+    --color-fill: 69, 81, 67;
+    --color-button-accent-hover: 102, 119, 99;
+  }
+  .theme-navy {
+    --color-fill: 59, 68, 81;
+    --color-button-accent-hover: 86, 100, 119;
+  }
+  .theme-neon {
+    --color-fill: 165, 88, 245;
+    --color-button-accent-hover: 182, 91, 255;
+  }
+}

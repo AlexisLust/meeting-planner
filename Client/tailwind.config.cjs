@@ -1,3 +1,12 @@
+function withOpacity(variableName) {
+  return ({ opacityValue }) => {
+    if (opacityValue !== undefined) {
+      return `rgba(var(${variableName}), ${opacityValue})`
+    }
+    return `rgb(var(${variableName}))`
+  }
+}
+
 module.exports = {
   content: ["./src/**/*.{js,jsx}"],
   theme: {    
@@ -5,6 +14,12 @@ module.exports = {
       'nunito': ['"Nunito Sans"', 'sans-serif'],
     },
     extend: {
+      backgroundColor: {
+        skin: {
+          fill: withOpacity('--color-fill'),
+          'button-accent-hover': withOpacity('--color-button-accent-hover'),
+        },
+      },
       fontFamily: {
         sans: [
           '"Nunito Sans"',

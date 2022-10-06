@@ -4,7 +4,7 @@ const CoworkerModel = require("../models/coworkers");
 const router = express.Router();
 
 mongoose.connect(
-  "mongodb+srv://xelatsul:iKp34SBc0KXb1hhr@cluster0.448yzx3.mongodb.net/meeting_scheduler?retryWrites=true&w=majority"
+  "mongodb+srv://xelatsul:"+process.env.MONGO_DB+"@cluster0.448yzx3.mongodb.net/meeting_scheduler?retryWrites=true&w=majority"
 );
 
 router.get("/", (req, res) => {
