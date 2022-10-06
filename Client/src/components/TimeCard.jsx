@@ -15,6 +15,7 @@ export default function TimeCard({
   timecard,
   setListOfSelectedCoworkers,
   removeCoworker,
+  handleClick,
 
 }) {
   // var message = "";
@@ -39,6 +40,7 @@ export default function TimeCard({
     setbuttonState(false);
     setEffect(true);
     setListOfSelectedCoworkers((e) => [...e, timecard]);
+    
     // we set this here so it doesn't get reset over there
     
   }
@@ -48,6 +50,7 @@ export default function TimeCard({
     setbuttonState(true);
     setEffect(true);
     removeCoworker(id); // we receive this from the parent
+    
 
     // setListOfSelectedCoworkers((e) => {
     //   e.filter(item => item !== timecard);
