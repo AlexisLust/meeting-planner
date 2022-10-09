@@ -79,7 +79,7 @@ export default function TimeCard({
         <div className="rounded-t-2xl bg-header-gray h-25 w-full">
           <h4
             key={id}
-            className="table-caption my-5 ml-12 text-2xl font-semibold font-sans tracking-tight text-blue-600"
+            className="table-caption my-5 ml-12 text-2xl font-semibold font-sans tracking-tight text-black"
           >
             {name}
           </h4>
@@ -100,13 +100,13 @@ export default function TimeCard({
               {time_three_start} - {time_three_end}
             </p>
           </div>
-          <div className="w-fit mt-auto">
+          <div className="w-60 mt-auto">
             {buttonState ? (
               <button
                 onClick={addedButton}
                 className={`${
                   effect && "animate-wiggle"
-                } rounded-xl h-12 w-full mt-10 px-4 py-2 text-sm text-blue-100 bg-skin-fill hover:bg-skin-button-accent-hover text-white shadow`}
+                } rounded-xl h-12 w-full mt-10 px-4 py-2 text-sm text-white bg-skin-fill hover:bg-skin-button-accent-hover text-white shadow`}
                 onAnimationEnd={() => setEffect(false)}
               >
                 {buttonText}

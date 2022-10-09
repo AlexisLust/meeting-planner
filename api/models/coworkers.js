@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
 
 const CoworkerSchema = {
-  id: { type: Number, required: true },
   name: { type: String, required: true },
   time_one_start: { type: String, required: false },
   time_one_end:{ type: String, required: false },
