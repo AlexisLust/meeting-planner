@@ -74,8 +74,8 @@ export default function Add() {
     setCoworker({ ...coworker, [name]: value });
   };
 
-  function saveCoworker (e)  {
-    e.preventDefault()
+  function saveCoworker(e) {
+    e.preventDefault();
     const {
       name,
       time_one_start,
@@ -97,10 +97,11 @@ export default function Add() {
       })
       .then((response) => {
         response.status;
-        console.log(response.data)
+        console.log(response.data);
       })
       .catch((err) => console.warn(err));
-  };
+    window.location.href = "/";
+  }
 
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col justify-center py-12 px-6 lg:px-8">

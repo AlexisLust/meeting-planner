@@ -2,15 +2,13 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import TimeCard from "./TimeCard";
 
-export default function Home({}){
-    const [listOfCoworkers, setCoworkers] = useState([{}]);
+export default function Home({}) {
+  const [listOfCoworkers, setCoworkers] = useState([{}]);
 
   var coworker;
   const [message, setMessage] = useState();
   const [theme, setTheme] = useState("");
   const [listOfSelectedCoworkers, setListOfSelectedCoworkers] = useState([]);
-
-
 
   useEffect(() => {
     axios.get("/api/coworkers").then((response) => {
@@ -19,7 +17,7 @@ export default function Home({}){
   }, []);
 
   useEffect(() => {
-    scheduleApi()    
+    scheduleApi();
   }, [listOfSelectedCoworkers]);
 
   const scheduleApi = () => {
@@ -96,7 +94,7 @@ export default function Home({}){
             <div></div>
           ) : (
             <div className="rounded-xl my-10 h-20 bg-header-gray ">
-              <div className="rounded-xl p-6  bg-background-gray ">
+              <div className="rounded-xl p-6 bg-background-gray ">
                 <p>{message}</p>
                 {""}
               </div>
@@ -114,5 +112,4 @@ export default function Home({}){
       </div>
     </>
   );
-
 }

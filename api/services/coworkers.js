@@ -121,6 +121,8 @@ function schedule(listOfSelectedCoworkers) {
         tempMessage =
           "The next available time for a meeting is " + availableTimes[0] + ".";
       }
+    } else {
+      tempMessage = "No match found. Select two or more possible attendees."
     }
     return tempMessage;
   }
