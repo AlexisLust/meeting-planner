@@ -106,7 +106,7 @@ export default function TimeCard({
                 onClick={addedButton}
                 className={`${
                   effect && "animate-wiggle"
-                } rounded-xl h-12 w-full mt-10 px-4 py-2 text-sm text-white bg-skin-fill hover:bg-skin-button-accent-hover text-white shadow`}
+                } rounded-xl h-12 w-full mt-10 px-4 py-2 text-sm bg-skin-fill hover:bg-skin-button-accent-hover text-white shadow`}
                 onAnimationEnd={() => setEffect(false)}
               >
                 {buttonText}
@@ -116,7 +116,7 @@ export default function TimeCard({
                 onClick={removedButton}
                 className={`${
                   effect && "animate-wiggle"
-                } rounded-xl h-12 w-full mt-10 px-4 py-2 text-sm text-blue-100 bg-skin-fill hover:bg-skin-button-accent-hover text-white shadow`}
+                } rounded-xl h-12 w-full mt-10 px-4 py-2 text-sm bg-skin-fill hover:bg-skin-button-accent-hover text-white shadow`}
                 onAnimationEnd={() => setEffect(false)}
               >
                 {buttonText}

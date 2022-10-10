@@ -12,11 +12,13 @@ exports.getAll = (req, res) => {
 
 exports.scheduler = (req, res) => {
   const listCoworkers = req.body.listCoworkers;
+  console.log(listCoworkers.length);
   if (listCoworkers.length < 2) {
-    return;
+    res.status(200).send("Not enough coworkers selected");
+  } else {
+    const response = schedule(listCoworkers);
+    res.send(response);
   }
-  const response = schedule(listCoworkers);
-  res.send(response);
 };
 
 exports.create = (req, res) => {
@@ -35,11 +37,9 @@ exports.create = (req, res) => {
       res.send(data);
     })
     .catch((err) => {
-      res
-        .status(200)
-        .send({
-          message:
-            err.message || "There was an error while creating a new coworker.",
-        });
+      res.status(200).send({
+        message:
+          err.message || "There was an error while creating a new coworker.",
+      });
     });
 };

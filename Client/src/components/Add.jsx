@@ -124,7 +124,7 @@ export default function Add() {
                   required
                   value={coworker.name || ""}
                   onChange={handleInputChange}
-                  className=""
+                  className="focus:border-gray-500 focus:bg-white focus:ring-0"
                 />
               </div>
             </div>
@@ -141,7 +141,7 @@ export default function Add() {
                   <select
                     name="time_one_start"
                     id="time_one_start"
-                    className=""
+                    className="focus:border-gray-500 focus:bg-white focus:ring-0"
                     value={coworker.time_one_start}
                     onChange={handleInputChange}
                   >
@@ -167,6 +167,7 @@ export default function Add() {
                     id="time_one_end"
                     value={coworker.time_one_end}
                     onChange={handleInputChange}
+                    className="focus:border-gray-500 focus:bg-white focus:ring-0"
                   >
                     {options.map((option) => (
                       <option key={option.value} value={option.label}>
@@ -192,6 +193,7 @@ export default function Add() {
                     id="time_two_start"
                     value={coworker.time_two_start}
                     onChange={handleInputChange}
+                    className="focus:border-gray-500 focus:bg-white focus:ring-0"
                   >
                     {options.map((option) => (
                       <option key={option.value} value={option.label}>
@@ -215,6 +217,7 @@ export default function Add() {
                     id="time_two_end"
                     value={coworker.time_two_end}
                     onChange={handleInputChange}
+                    className="focus:border-gray-500 focus:bg-white focus:ring-0"
                   >
                     {options.map((option) => (
                       <option key={option.value} value={option.label}>
@@ -240,6 +243,7 @@ export default function Add() {
                     id="time_three_start"
                     value={coworker.time_three_start}
                     onChange={handleInputChange}
+                    className="focus:border-gray-500 focus:bg-white focus:ring-0"
                   >
                     {options.map((option) => (
                       <option key={option.value} value={option.label}>
@@ -263,6 +267,7 @@ export default function Add() {
                     id="time_three_end"
                     value={coworker.time_three_end}
                     onChange={handleInputChange}
+                    className="focus:border-gray-500 focus:bg-white focus:ring-0"
                   >
                     {options.map((option) => (
                       <option key={option.value} value={option.label}>
@@ -278,7 +283,7 @@ export default function Add() {
               <button
                 type="submit"
                 onClick={saveCoworker}
-                className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium bg-skin-fill hover:bg-skin-button-accent-hover text-white shadow focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
               >
                 Add
               </button>

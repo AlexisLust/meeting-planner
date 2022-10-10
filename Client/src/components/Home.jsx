@@ -7,7 +7,7 @@ export default function Home({}) {
 
   var coworker;
   const [message, setMessage] = useState();
-  const [theme, setTheme] = useState("");
+  
   const [listOfSelectedCoworkers, setListOfSelectedCoworkers] = useState([]);
 
   useEffect(() => {
@@ -25,7 +25,7 @@ export default function Home({}) {
     axios
       .post("/api/coworkers", { listCoworkers: listOfSelectedCoworkers })
       .then((response) => {
-        response.status;
+        console.log(response.status);
         setMessage(response.data);
       })
       .catch((err) => console.warn(err));
@@ -46,15 +46,7 @@ export default function Home({}) {
     }
   }
 
-  function changeTheme() {
-    if (theme == "") {
-      setTheme("theme-navy");
-    } else if (theme == "theme-navy") {
-      setTheme("theme-neon");
-    } else {
-      setTheme("");
-    }
-  }
+  
 
   return (
     <>
@@ -63,9 +55,9 @@ export default function Home({}) {
         src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
         alt="example"
       /> */}
-      <div className={theme}>
-        <div className=" w-full h-36 top-0 bg-skin-fill"></div>
-        <div className=" w-full -mt-32  font-nunito flex flex-col items-center">
+      <div>
+        <div className=" w-full mt-10 h-36 bg-skin-fill"></div>
+        <div className=" w-full -mt-32  font-nunito flex flex-col items-center mb-auto">
           {/* <div className=" space-x-12 flex flex-wrap md:flex-row  my-6  justify-center"> */}
           <div className="grid 2xl:grid-cols-4 xl:grid-cols-3 md:grid-cols-2 gap-2">
             {listOfCoworkers.map((coworker, index) => {
@@ -101,15 +93,9 @@ export default function Home({}) {
             </div>
           )}
         </div>
-        <div className="flex justify-end  ">
-          <button
-            onClick={changeTheme}
-            className={`bottom-0 absolute m-12 rounded-xl h-12 w-32 mt-10 px-4 py-2 text-sm text-blue-100 bg-skin-fill hover:bg-skin-button-accent-hover text-white shadow`}
-          >
-            Change Theme
-          </button>
-        </div>
+        
       </div>
+      
     </>
   );
 }
